@@ -1,6 +1,6 @@
 import pygame
 
-cat_img = pygame.image.load('assets/cat.png').convert_alpha()
+cat_img = pygame.image.load('assets/sprites/cat.png').convert_alpha()
 
 class Cat(pygame.sprite.Sprite):
     def __init__(self, x, y):

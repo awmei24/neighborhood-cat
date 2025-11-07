@@ -1,7 +1,5 @@
 import pygame
 import sys
-from systems.gamestate import GameState
-from scenes.street import StreetScene
 
 pygame.init()
 
@@ -10,6 +8,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Neighborhood Cat')
 
 clock = pygame.time.Clock()
+
+from systems.gamestate import GameState
+from scenes.street import StreetScene
 
 def main():
     game_state = GameState()
@@ -26,7 +27,7 @@ def main():
             current_scene.handle_event(event)
 
         current_scene.update(dt)
-        current_scene.draw()
+        current_scene.render()
         pygame.display.flip()
 
 if __name__ == '__main__':

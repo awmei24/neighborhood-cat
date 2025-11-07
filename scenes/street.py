@@ -1,7 +1,7 @@
 import pygame
-from objects.cat import Cat
-from objects.npc import NPC
-from objects.item import Item
+from entities.cat import Cat
+from entities.npc import NPC
+from entities.item import Item
 from systems.dialogue import DialogueBox
 
 class StreetScene:
@@ -11,7 +11,7 @@ class StreetScene:
         self.WIDTH, self.HEIGHT = screen.get_size()
 
         # --- assets ---
-        self.background = self.load_image('assets/street_bg.png', (self.WIDTH, self.HEIGHT))
+        self.background = self.load_image('assets/backgrounds/street_bg.png', (self.WIDTH, self.HEIGHT))
         self.FONT = pygame.font.Font(None, 28)
 
         # --- entities ---
@@ -37,7 +37,7 @@ class StreetScene:
             if event.key == pygame.K_SPACE and self.dialogue_box.active:
                 self.dialogue_box.advance()
 
-            elif event.key == pygame.K_e and not self.dialogue_box.active:
+            elif event.key == pygame.K_SPACE and not self.dialogue_box.active:
                 if self.cat.rect.colliderect(self.mrs_willow.rect):
                     lines = self.mrs_willow.get_dialogue(self.game_state.inventory)
                     self.dialogue_box.start(lines)
@@ -53,7 +53,7 @@ class StreetScene:
 
     def render(self):
         self.screen.blit(self.background, (0, 0))
-        self.all_sprites.render(self.screen)
+        self.all_sprites.draw(self.screen)
         self.dialogue_box.render(self.screen)
 
         inv_text = self.FONT.render(f'Inventory: {', '.join(self.game_state.inventory)}', True, (255, 255, 255))

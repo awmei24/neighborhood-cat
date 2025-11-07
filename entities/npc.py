@@ -1,6 +1,6 @@
 import pygame
 
-npc_img = pygame.image.load('assets/mrs_willow.png').convert_alpha()
+npc_img = pygame.image.load('assets/sprites/mrs_willow.png').convert_alpha()
 
 class NPC(pygame.sprite.Sprite):
     def __init__(self, x, y, name):

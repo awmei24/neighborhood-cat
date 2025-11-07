@@ -1,6 +1,6 @@
 import pygame
 
-item_img = pygame.image.load('assets/yarn.png').convert_alpha()
+item_img = pygame.image.load('assets/sprites/yarn.png').convert_alpha()
 
 class Item(pygame.sprite.Sprite):
     def __init__(self, name, x, y):
